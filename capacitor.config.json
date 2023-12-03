@@ -1,0 +1,8 @@
+{
+  "appId": "com.michinavi.app",
+  "appName": "michinavi",
+  "webDir": "dist",
+  "server": {
+    "androidScheme": "https"
+  }
+}

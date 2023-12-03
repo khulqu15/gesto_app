@@ -1,0 +1,7 @@
+{
+  "name": "michinavi",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue"
+}

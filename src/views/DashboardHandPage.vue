@@ -8,7 +8,7 @@
             <div class="w-full flex justify-between items-center md:ml-6 bg-base-100 p-6 rounded-bl-3xl">
               <div>
                 <h4 class="font-semibold text-base-content">
-                  Welcome!
+                  Data Recorded
                   <div class="badge badge-primary">{{ data === null || data === undefined || data === "" ? 0 : Object.keys(data).length }}</div>
                 </h4>
               </div>
@@ -28,19 +28,7 @@
             </div>
             <div class="max-h-[88vh] overflow-y-auto">
               <div class="w-full p-6">
-                <div class="space-y-3 gap-6">
-                  <div class="w-full bg-base-100 rounded-3xl">
-                    <div class="p-6">
-                      <h4 class="font-semibold text-base-content">Hayago: Berawal Dari Antusiasme Terhadap Teknologi IoT dan AI</h4>
-                      <p class="text-base-content">
-                        Dalam era digital saat ini, teknologi Internet of Things (IoT) dan Kecerdasan Buatan (AI) telah membuka peluang inovasi yang tak terbatas. Hayago, yang berdiri di tengah gelombang revolusi teknologi ini, didorong
-                        oleh antusiasme mendalam terhadap potensi yang ditawarkan oleh IoT dan AI. Berawal dari visi sederhana untuk mengintegrasikan teknologi canggih dalam kehidupan sehari-hari, Hayago kini telah berkembang menjadi
-                        pelopor dalam bidang teknologi pendeteksian. Saat ini, dengan dedikasi dan komitmen yang kuat, tim Hayago tengah fokus mengerjakan proyek ambisius: pendeteksian kerusakan jalan. Dengan menggabungkan keahlian dalam
-                        IoT dan AI, Hayago bertujuan untuk menciptakan solusi yang tidak hanya efisien tetapi juga dapat meningkatkan keselamatan dan kenyamanan bagi pengguna jalan raya.
-                      </p>
-                    </div>
-                  </div>
-                </div>
+                <progress-view />
                 <div class="relative w-full bottom-0 left-0 py-6 mt-12 flex justify-center text-base-content">
                   2023 Developed by <span class="text-primary ml-1 font-semibold"><a href="https://hayago.id" target="_blank">Hayago</a></span>
                 </div>
@@ -54,6 +42,7 @@
 </template>
 
 <script setup lang="ts">
+import ProgressView from "@/components/ProgressView.vue";
 import SidebarView from "@/components/SidebarView.vue";
 import { IonContent, IonPage } from "@ionic/vue";
 import { onMounted, ref, Ref, watch } from "vue";

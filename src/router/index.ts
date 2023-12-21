@@ -1,82 +1,100 @@
-import { createRouter, createWebHistory } from '@ionic/vue-router';
-import { RouteRecordRaw } from 'vue-router';
-import { customAnimation } from '@/animations/customAnimation';
-import HomePage from '../views/HomePage.vue'
-import AboutPage from '../views/AboutPage.vue'
-import SplashscreenPage from '../views/SplashscreenPage.vue'
-import PricingPage from '../views/PricingPage.vue'
-import SupportPage from '../views/SupportPage.vue'
-import LoginPage from '../views/LoginPage.vue'
-import CamPage from '../views/CamPage.vue'
-import DashboardPage from '../views/DashboardPage.vue'
+import { createRouter, createWebHistory } from "@ionic/vue-router";
+import { RouteRecordRaw } from "vue-router";
+import { customAnimation } from "@/animations/customAnimation";
+import HomePage from "../views/HomePage.vue";
+import AboutPage from "../views/AboutPage.vue";
+import SplashscreenPage from "../views/SplashscreenPage.vue";
+import PricingPage from "../views/PricingPage.vue";
+import SupportPage from "../views/SupportPage.vue";
+import LoginPage from "../views/LoginPage.vue";
+import CamPage from "../views/CamPage.vue";
+import DashboardPage from "../views/DashboardPage.vue";
+import DashboardProfilePage from "../views/DashboardProfilePage.vue";
+import DashboardHandPage from "../views/DashboardHandPage.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
-    path: '/',
-    name: 'Splashscreen',
-    component: SplashscreenPage
+    path: "/",
+    name: "Splashscreen",
+    component: SplashscreenPage,
   },
   {
-    path: '/home',
-    name: 'Home',
+    path: "/home",
+    name: "Home",
     component: HomePage,
     meta: {
-      transition: customAnimation
-    }
+      transition: customAnimation,
+    },
   },
   {
-    path: '/about',
-    name: 'About',
+    path: "/about",
+    name: "About",
     component: AboutPage,
     meta: {
-      transition: customAnimation
-    }
+      transition: customAnimation,
+    },
   },
   {
-    path: '/login',
-    name: 'Login',
+    path: "/login",
+    name: "Login",
     component: LoginPage,
     meta: {
-      transition: customAnimation
-    }
+      transition: customAnimation,
+    },
   },
   {
-    path: '/pricing',
-    name: 'Pricing',
+    path: "/pricing",
+    name: "Pricing",
     component: PricingPage,
     meta: {
-      transition: customAnimation
-    }
+      transition: customAnimation,
+    },
   },
   {
-    path: '/support',
-    name: 'Support',
+    path: "/support",
+    name: "Support",
     component: SupportPage,
     meta: {
-      transition: customAnimation
-    }
+      transition: customAnimation,
+    },
   },
   {
-    path: '/cam',
-    name: 'Cam',
+    path: "/cam",
+    name: "Cam",
     component: CamPage,
     meta: {
-      transition: customAnimation
-    }
+      transition: customAnimation,
+    },
   },
   {
-    path: '/dashboard',
-    name: 'Dashboard',
+    path: "/dashboard",
+    name: "Dashboard",
     component: DashboardPage,
     meta: {
-      transition: customAnimation
-    }
+      transition: customAnimation,
+    },
   },
-]
+  {
+    path: "/dashboard/profile",
+    name: "DashboardProfile",
+    component: DashboardProfilePage,
+    meta: {
+      transition: customAnimation,
+    },
+  },
+  {
+    path: "/dashboard/hand",
+    name: "DashboardHand",
+    component: DashboardHandPage,
+    meta: {
+      transition: customAnimation,
+    },
+  },
+];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes
-})
+  routes,
+});
 
-export default router
+export default router;

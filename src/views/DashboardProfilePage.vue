@@ -11,11 +11,11 @@
             <div class="max-h-[88vh] overflow-y-auto">
               <div class="w-full p-6">
                 <div class="space-y-3 gap-6">
-                  <div class="grid gap-6 grid-cols-1 items-center lg:grid-cols-3">
+                  <div class="grid gap-6 grid-cols-1 lg:grid-cols-3">
                     <div v-for="team in teams" :key="team.id">
-                      <div class="card w-80 h-80 bg-base-100 shadow-xl">
+                      <div class="card w-80 h-96 bg-base-100 shadow-xl">
                         <figure>
-                          <img :src="team.image" :alt="team.name" />
+                          <img width="200" class="mt-10" :src="team.image" :alt="team.name" />
                         </figure>
                         <div class="card-body">
                           <h2 class="card-title text-base-content">{{ team.name }}</h2>
@@ -44,6 +44,7 @@ import { onMounted, ref, Ref, watch } from "vue";
 import { db, storage } from "@/firebase";
 import { onValue, ref as dbRef } from "firebase/database";
 import { ref as storageRef, getDownloadURL } from "firebase/storage";
+import { image } from "@tensorflow/tfjs";
 
 const teams = ref([]);
 
@@ -62,9 +63,9 @@ const getDataFromFirebase = () => {
       if (Object.prototype.hasOwnProperty.call(teamsData, key)) {
         const team = teamsData[key];
 
-        let imageURL = "";
+        let imageURL = "https://firebasestorage.googleapis.com/v0/b/gesto-d6223.appspot.com/o/team%2F" + team.image + "?alt=media&token=4fce7bdf-3a6e-4a99-adb7-35487f03f75e";
         if (team.imageURL) {
-          const imageRef = storageRef(storage, team.image);
+          const imageRef = storageRef(storage, team.imageURL);
           imageURL = await getDownloadURL(imageRef);
         }
 
@@ -72,7 +73,7 @@ const getDataFromFirebase = () => {
           id: key,
           name: team.name,
           role: team.role,
-          image: team.image,
+          image: imageURL,
         });
       }
     }

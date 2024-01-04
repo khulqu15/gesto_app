@@ -9,4 +9,9 @@ import { IonApp, IonRouterOutlet } from '@ionic/angular/standalone';
 })
 export class AppComponent {
   constructor() {}
+  ngOnInit() {
+    console.log('Init')
+    const theme_data = localStorage.getItem('theme')
+    if(theme_data != undefined && theme_data != null) document.querySelector('html')?.setAttribute('data-theme', theme_data)
+  }
 }

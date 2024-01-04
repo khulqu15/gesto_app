@@ -16,5 +16,10 @@ export class HomePage {
     else this.theme = 'dark'
     const html: HTMLElement | null = document.querySelector('html')
     html?.setAttribute('data-theme', this.theme.toString())
+    localStorage.setItem('theme', this.theme.toString())
+  }
+  ngOnInit() {
+    const theme_data = localStorage.getItem('theme')
+    if(theme_data != undefined && theme_data != null) this.theme = theme_data
   }
 }

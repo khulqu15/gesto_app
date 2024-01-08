@@ -12,10 +12,23 @@ export const routes: Routes = [
   },
   {
     path: 'login',
-    loadComponent: () => import('./login/login.page').then( m => m.LoginPage)
+    loadComponent: () => import('./login/login.page').then((m) => m.LoginPage),
   },
   {
     path: 'dashboard',
-    loadComponent: () => import('./dashboard/dashboard.page').then( m => m.DashboardPage)
+    loadComponent: () =>
+      import('./dashboard/home/dashboard.page').then((m) => m.DashboardPage),
+  },
+  {
+    path: 'communities',
+    loadComponent: () =>
+      import('./dashboard/communities/communities.page').then(
+        (m) => m.CommunitiesPage
+      ),
+  },
+  {
+    path: 'users',
+    loadComponent: () =>
+      import('./dashboard/users/users.page').then((m) => m.UsersPage),
   },
 ];

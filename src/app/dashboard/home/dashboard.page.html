@@ -29,7 +29,7 @@
                 class="w-12 h-12 bg-primary rounded-full relative overflow-hidden"
               >
                 <img
-                  src="assets/image/dev.png"
+                  src="assets/image/profile.png"
                   class="w-full h-full object-cover object-center"
                   alt="Developer"
                 />
@@ -43,12 +43,33 @@
               </ul>
             </div>
           </div>
-          <div class="flex justify-between">
-            <div class="flex w-4/6 mt-8 p-16 bg-base-100 rounded-2xl"></div>
-            <div class="flex w-96 mt-8 bg-base-100 rounded-2xl"></div>
+          <div class="grid grid-cols-3 gap-3 mt-8">
+            <div class="col-span-2 bg-base-100 rounded-2xl relative">
+              <img src="/assets/image/wellcome.png" alt="image" />
+            </div>
+            <div class="bg-base-100 rounded-2xl relative">
+              <img
+                class="absolute bottom-0 right-0"
+                src="/assets/image/setup.png"
+                alt="image"
+              />
+              <div class="absolute top-0 left-0 p-5 pr-12">
+                <h1 class="text-base-content font-bold text-3xl">
+                  Setup New Announcement
+                </h1>
+                <p class="text-base-content">
+                  Create new announcement for all users
+                </p>
+              </div>
+              <div class="absolute bottom-0 left-0 p-5">
+                <button class="btn sm:btn-sm lg:btn-md btn-primary text-white">
+                  Create New
+                </button>
+              </div>
+            </div>
           </div>
-          <div class="w-full mt-8 p-8 bg-base-100 rounded-2xl">
-            <div
+          <div class="w-full mt-5 mb-8 p-16 bg-base-100 rounded-2xl">
+            <!-- <div
               class="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4 items-center"
             >
               <div
@@ -171,7 +192,7 @@
                   >
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
@@ -192,7 +213,7 @@
           </div>
           <!-- Sidebar content here -->
           <li>
-            <a class="bg-base-300" href="/dashboard"
+            <a class="bg-base-300 font-bold shadow" href="/dashboard"
               ><ion-icon class="text-2xl mr-2" name="home-outline"></ion-icon>
               Home</a
             >

@@ -47,7 +47,7 @@
             <div class="flex items-center justify-center">
               <h1 class="text-base-content text-bold text-2xl">
                 List of Communities
-                <div class="badge badge-primary">80</div>
+                <div class="badge badge-primary">20</div>
               </h1>
             </div>
             <div>
@@ -59,6 +59,42 @@
                   <p>filter2</p>
                   <p>filter3</p>
                 </div>
+              </div>
+            </div>
+          </div>
+          <div class="grid grid-cols-4 mt-[70px] gap-5 gap-y-16 mb-10">
+            <div
+              *ngFor="let i of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]"
+            >
+              <div
+                class="w-full bg-black flex flex-col justify-center rounded-2xl"
+              >
+                <div class="relative flex items-center">
+                  <div
+                    class="w-20 h-20 rounded-full overflow-hidden absolute -top-10 left-10"
+                  >
+                    <img
+                      src="../../../assets/image/dev.png"
+                      alt="Foto Profil"
+                      class="object-cover w-full h-full"
+                    />
+                  </div>
+                  <div class="p-16 pl-5 bg-base-100 rounded-2xl w-full">
+                    <div>
+                      <h1 class="text-base-content font-bold text-2xl">
+                        Komunitas Tuli Bisu Lamongan
+                      </h1>
+                      <p class="text-base-content mt-1">admin&#64;gmail.com</p>
+                      <div class="absolute right-6 top-5">
+                        <ion-icon
+                          class="text-base-content"
+                          name="ellipsis-vertical"
+                        ></ion-icon>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex justify-center p-4"><h1>More Detail</h1></div>
               </div>
             </div>
           </div>

@@ -47,7 +47,7 @@
             <div class="flex items-center justify-center">
               <h1 class="text-base-content text-bold text-2xl">
                 List of Users
-                <div class="badge badge-primary">80</div>
+                <div class="badge badge-primary">18</div>
               </h1>
             </div>
             <div>
@@ -58,6 +58,37 @@
                   <p>filter1</p>
                   <p>filter2</p>
                   <p>filter3</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="grid grid-cols-3 mt-[70px] gap-5 gap-y-10 mb-10">
+            <div
+              *ngFor="let i of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18]"
+            >
+              <div class="relative flex items-center">
+                <div
+                  class="w-20 h-20 rounded-full overflow-hidden absolute top-0 left-5"
+                >
+                  <img
+                    src="../../../assets/image/dev.png"
+                    alt="Foto Profil"
+                    class="object-cover w-full h-full"
+                  />
+                </div>
+                <div class="ml-14 p-3 pl-14 bg-base-100 rounded-2xl w-full">
+                  <div class="relative">
+                    <h1 class="text-base-content font-bold text-lg">
+                      Kenzie Nararya
+                    </h1>
+                    <p class="text-base-content mt-1">admin&#64;gmail.com</p>
+                    <div class="absolute right-0 top-5">
+                      <ion-icon
+                        class="text-base-content"
+                        name="ellipsis-vertical"
+                      ></ion-icon>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

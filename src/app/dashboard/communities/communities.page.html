@@ -66,15 +66,16 @@
             <div
               *ngFor="let i of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]"
             >
-              <div
+              <button
                 class="w-full bg-black flex flex-col justify-center rounded-2xl hover:scale-105 duration-500"
+                onclick="my_modal_2.showModal()"
               >
                 <div class="relative flex items-center">
                   <div
                     class="w-20 h-20 rounded-full overflow-hidden absolute -top-10 left-10"
                   >
                     <img
-                      src="../../../assets/image/dev.png"
+                      src="../../../assets/image/person.png"
                       alt="Foto Profil"
                       class="object-cover w-full h-full"
                     />
@@ -95,7 +96,7 @@
                   </div>
                 </div>
                 <div class="flex justify-center p-4"><h1>More Detail</h1></div>
-              </div>
+              </button>
             </div>
           </div>
         </div>
@@ -170,6 +171,15 @@
               </form>
             </div>
           </div>
+        </dialog>
+        <dialog id="my_modal_2" class="modal">
+          <div class="modal-box">
+            <h3 class="font-bold text-lg">Hello!</h3>
+            <p class="py-4">Press ESC key or click outside to close</p>
+          </div>
+          <form method="dialog" class="modal-backdrop">
+            <button>close</button>
+          </form>
         </dialog>
       </div>
     </div>

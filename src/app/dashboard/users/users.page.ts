@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
+import { AngularFireDatabase } from '@angular/fire/compat/database';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-users',
@@ -9,10 +11,15 @@ import { IonicModule } from '@ionic/angular';
   styleUrls: ['./users.page.scss'],
   standalone: true,
   imports: [IonicModule, CommonModule, FormsModule],
+  template:
+    '<ion-list><ion-item *ngfor="let team of teams$ | async">{{ team.id }}</ion-item></ion-list>',
 })
 export class UsersPage implements OnInit {
+  teams$: Observable<any[]>;
   public theme: String = 'dark';
-  constructor() {}
+  constructor(private db: AngularFireDatabase) {
+    this.teams$ = this.db.list('data/teams').valueChanges();
+  }
   changeTheme(e: any) {
     if (this.theme == 'dark') this.theme = 'light';
     else this.theme = 'dark';
@@ -20,7 +27,7 @@ export class UsersPage implements OnInit {
     html?.setAttribute('data-theme', this.theme.toString());
     localStorage.setItem('theme', this.theme.toString());
   }
-  ngOnInit() {
+  ngOnInit(): void {
     const theme_data = localStorage.getItem('theme');
     if (theme_data != undefined && theme_data != null) this.theme = theme_data;
   }

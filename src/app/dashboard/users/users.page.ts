@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
-import { AngularFireDatabase } from '@angular/fire/compat/database';
+import { Database, getDatabase, ref, onValue } from '@angular/fire/database';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -14,11 +14,18 @@ import { Observable } from 'rxjs';
   template:
     '<ion-list><ion-item *ngfor="let team of teams$ | async">{{ team.id }}</ion-item></ion-list>',
 })
+
 export class UsersPage implements OnInit {
-  teams$: Observable<any[]>;
+  public teams: any;
+  private database: Database = inject(Database);
   public theme: String = 'dark';
-  constructor(private db: AngularFireDatabase) {
-    this.teams$ = this.db.list('data/teams').valueChanges();
+  constructor() {
+    const db: any = getDatabase()
+    const dataRef: any = ref(db, 'data/teams')
+    onValue(dataRef, (snapshot) => {
+      const data = snapshot.val();
+      this.teams = data ? Object.values(data) : [];
+    })
   }
   changeTheme(e: any) {
     if (this.theme == 'dark') this.theme = 'light';

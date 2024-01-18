@@ -47,7 +47,7 @@
             <div class="flex items-center justify-center">
               <h1 class="text-base-content text-bold text-2xl">
                 List of Users
-                <div class="badge badge-primary">18</div>
+                <div class="badge badge-primary">{{ numberOfTeams }}</div>
               </h1>
             </div>
             <div>
@@ -62,37 +62,37 @@
               </div>
             </div>
           </div>
-          <!-- <div class="grid grid-cols-3 mt-[70px] gap-5 gap-y-10 mb-10">
-            <ion-list>
-              <ion-item *ngFor="let team of teams$ | async">
-                <div class="relative flex items-center">
-                  <div
-                    class="w-20 h-20 rounded-full overflow-hidden absolute top-0 left-5"
-                  >
+          <div class="grid grid-cols-3 mt-[70px] gap-5 gap-y-10 mb-10">
+            <div class="flex items-center" *ngFor="let team of teams">
+              <div class="p-3 bg-base-100 rounded-2xl w-full">
+                <div class="grid grid-cols-4">
+                  <div class="flex items-center justify-center w-24 h-24">
                     <img
-                      src="../../../assets/image/person.png"
+                      src="https://firebasestorage.googleapis.com/v0/b/gesto-d6223.appspot.com/o/team%2F{{ team.image }}?alt=media&token=93b4f991-5a73-453c-b4d2-eea28757e5e6"
                       alt="Foto Profil"
-                      class="object-cover w-full h-full"
+                      class="w-full h-full"
                     />
                   </div>
-                  <div class="ml-14 p-3 pl-14 bg-base-100 rounded-2xl w-full">
-                    <div class="relative">
+                  <div class="col-span-2 grid grid-rows-2">
+                    <div>
                       <h1 class="text-base-content font-bold text-lg">
                         {{ team.name }}
                       </h1>
+                    </div>
+                    <div>
                       <p class="text-base-content mt-1">{{ team.role }}</p>
-                      <div class="absolute right-0 top-5">
-                        <ion-icon
-                          class="text-base-content"
-                          name="ellipsis-vertical"
-                        ></ion-icon>
-                      </div>
                     </div>
                   </div>
+                  <div class="flex items-center justify-end">
+                    <ion-icon
+                      class="text-base-content"
+                      name="ellipsis-vertical"
+                    ></ion-icon>
+                  </div>
                 </div>
-              </ion-item>
-            </ion-list>
-          </div> -->
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="drawer-side">

@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { Database, getDatabase, ref, onValue } from '@angular/fire/database';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-users',
@@ -11,21 +10,20 @@ import { Observable } from 'rxjs';
   styleUrls: ['./users.page.scss'],
   standalone: true,
   imports: [IonicModule, CommonModule, FormsModule],
-  template:
-    '<ion-list><ion-item *ngfor="let team of teams$ | async">{{ team.id }}</ion-item></ion-list>',
 })
-
 export class UsersPage implements OnInit {
   public teams: any;
+  public numberOfTeams: number = 0;
   private database: Database = inject(Database);
   public theme: String = 'dark';
   constructor() {
-    const db: any = getDatabase()
-    const dataRef: any = ref(db, 'data/teams')
+    const db: any = getDatabase();
+    const dataRef: any = ref(db, 'data/teams');
     onValue(dataRef, (snapshot) => {
       const data = snapshot.val();
       this.teams = data ? Object.values(data) : [];
-    })
+      this.numberOfTeams = this.teams.length;
+    });
   }
   changeTheme(e: any) {
     if (this.theme == 'dark') this.theme = 'light';
